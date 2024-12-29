@@ -1,0 +1,40 @@
+body{
+    margin:0px;
+}
+.info-table thead tr th{
+    font-size: 14px !important;
+    padding: 10px;
+}
+.info-table tbody tr td{
+    font-size: 14px !important;
+    padding: 10px;
+}
+.ngx-pagination li{
+    border: 1px solid #ccc;
+    padding: 5px 14px !important;
+    border-radius: .25rem!important;
+    margin-left:.3rem;
+}
+.ngx-pagination .current{
+    border: none;
+    border: 1px solid #2199e8;
+}
+.pagination-next{
+    padding: 0px !important;
+}
+/* .ngx-pagination .disabled{
+    padding: .1875rem .625rem !important;
+} */
+.ngx-pagination a, .ngx-pagination button{
+    padding: 0px !important;
+}
+.ngx-pagination a:hover, .ngx-pagination button:hover{
+    background:inherit !important;
+}
+.ngx-pagination{
+    margin-bottom: 0px !important;
+}
+.pagination-status{
+    font-size: 14px;
+    color: #878a99;
+}

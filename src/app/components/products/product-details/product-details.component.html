@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0">Product Details</h4>
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a routerLink="/manage-products">Manage Product</a></li>
+                    <li class="breadcrumb-item active">Product Details</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title mb-0">Product Details</h4>
+            </div>
+            <div class="card-body">
+                <form class="row gy-4" [formGroup]="productForm" (ngSubmit)="saveProduct()">
+                    <input type="hidden" class="form-control" formControlName="Id">
+                    <div class="col-xxl-3 col-md-6">
+                        <div>
+                            <label for="basiInput" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="Name" placeholder="Enter name">
+                        </div>
+                        @if(productForm.controls["Name"].touched && productForm.controls["Name"].errors?.["required"]){
+                            <div class="text-danger">
+                                <span>Name is required</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-xxl-3 col-md-6">
+                        <div>
+                            <label for="basiInput" class="form-label">SKU <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="SKU" placeholder="Enter SKU">
+                        </div>
+                        @if(productForm.controls["SKU"].touched && productForm.controls["SKU"].errors?.["required"]){
+                            <div class="text-danger">
+                                <span>SKU is required</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-xxl-3 col-md-6">
+                        <div>
+                            <label for="basiInput" class="form-label">Price <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="Price" placeholder="Enter price">
+                        </div>
+                        @if(productForm.controls["Price"].touched && productForm.controls["Price"].errors?.["required"]){
+                            <div class="text-danger">
+                                <span>Price is required</span>
+                            </div>
+                        }
+                        @else if(productForm.controls["Price"].touched && productForm.controls["Price"].errors?.["min"]){
+                            <div class="text-danger">
+                                <span>Price must be at least 1</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-xxl-3 col-md-6">
+                        <div>
+                            <label for="basiInput" class="form-label">Quantity <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="Quantity" placeholder="Enter quantity">
+                        </div>
+                        @if(productForm.controls["Quantity"].touched && productForm.controls["Quantity"].errors?.["required"]){
+                            <div class="text-danger">
+                                <span>Quantity is required</span>
+                            </div>
+                        }
+                        @else if(productForm.controls["Quantity"].touched && productForm.controls["Quantity"].errors?.["min"]){
+                            <div class="text-danger">
+                                <span>Quantity must be at least 1</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-xxl-12 col-md-12">
+                        <div>
+                            <label for="basiInput" class="form-label">Description</label>
+                            <textarea class="form-control" formControlName="Description" placeholder="Enter description"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a routerLink="/manage-products" class="btn btn-link ml-2">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
